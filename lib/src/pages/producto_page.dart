@@ -20,6 +20,7 @@ class _ProductoPageState extends State<ProductoPage> {
   ProductoModel producto = new ProductoModel();
   bool _guardando = false;
   File foto;
+  bool _state = true;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _ProductoPageState extends State<ProductoPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Producto'),
+        title: Text('Producto actual'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.photo_size_select_actual),
@@ -71,10 +72,12 @@ class _ProductoPageState extends State<ProductoPage> {
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(labelText: 'Producto'),
       onSaved: (value) => producto.titulo = value,
+      enabled: _state,
       validator: (value) {
         if (value.length < 3) {
           return 'Ingrese el nombre del producto';
         } else {
+          _state = false;
           return null;
         }
       },
@@ -87,8 +90,10 @@ class _ProductoPageState extends State<ProductoPage> {
       keyboardType: TextInputType.numberWithOptions(decimal: true),
       decoration: InputDecoration(labelText: 'Precio'),
       onSaved: (value) => producto.valor = double.parse(value),
+      enabled: _state,
       validator: (value) {
         if (utils.isNumeric(value)) {
+          _state = false;
           return null;
         } else {
           return 'Sólo números';
@@ -131,7 +136,6 @@ class _ProductoPageState extends State<ProductoPage> {
     if (foto != null) {
       mostrarSnackbar('Guardando registro...');
       producto.fotoUrl = await productosBloc.subirFoto(foto);
-      
     }
 
     if (producto.id == null) {
@@ -141,13 +145,14 @@ class _ProductoPageState extends State<ProductoPage> {
     }
 
     //
-    Navigator.of(context).pushNamedAndRemoveUntil('home', (Route<dynamic> route) => false);
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('home', (Route<dynamic> route) => false);
   }
 
   void mostrarSnackbar(String mensaje) {
     final snackbar = SnackBar(
       content: Text(mensaje),
-      duration: Duration(milliseconds: 3000),
+      duration: Duration(milliseconds: 6000),
     );
     scaffoldKey.currentState.showSnackBar(snackbar);
   }

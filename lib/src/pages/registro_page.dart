@@ -146,7 +146,7 @@ class RegistroPage extends StatelessWidget {
         return RaisedButton(
           child: Container(
             padding: EdgeInsets.symmetric( horizontal: 80.0, vertical: 15.0),
-            child: Text('Ingresar'),
+            child: Text('Crear cuenta'),
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0)
@@ -218,7 +218,7 @@ class RegistroPage extends StatelessWidget {
             children: <Widget>[
               Icon( Icons.person_pin_circle, color: Colors.white, size: 100.0 ),
               SizedBox( height: 10.0, width: double.infinity ),
-              Text('Fernando Herrera', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
+              Text('Cree su Usuario', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
             ],
           ),
         )

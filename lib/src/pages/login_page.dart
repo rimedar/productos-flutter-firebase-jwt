@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
             ),
             child: Column(
               children: <Widget>[
-                Text('Ingreso', style: TextStyle(fontSize: 20.0)),
+                Text('Iniciar Sesión', style: TextStyle(fontSize: 20.0)),
                 SizedBox( height: 60.0 ),
                 _crearEmail( bloc ),
                 SizedBox( height: 30.0 ),
@@ -217,7 +217,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               Icon( Icons.person_pin_circle, color: Colors.white, size: 100.0 ),
               SizedBox( height: 10.0, width: double.infinity ),
-              Text('Registro de Productos', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
+              Text('Login', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
             ],
           ),
         )

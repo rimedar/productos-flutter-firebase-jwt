@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     productosBloc.cargarProductos();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Lista de Productos'),
       ),
       body: _crearListado(productosBloc),
       floatingActionButton: _crearBoton(context),
