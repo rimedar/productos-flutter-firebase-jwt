@@ -1,3 +1,3 @@
 # FormValidation, CRUD y Fotos
 
-Repositorio oficial de mi curso de Flutter
+Del curso de Flutter en español de Fernando Herrera
